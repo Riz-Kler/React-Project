@@ -1,0 +1,40 @@
+# Query: Department
+# ContextLines: 1
+
+12 results - 1 file
+
+src\Organisation.js:
+   7  
+   8: export class Organisation extends Component{
+   9  
+
+  15      refreshList(){
+  16:         fetch(process.env.REACT_APP_API+'organisation')
+  17          .then(response=>response.json())
+
+  32          if(window.confirm('Are you sure?')){
+  33:             fetch(process.env.REACT_APP_API+'organisation/'+depid,{
+  34                  method:'DELETE',
+
+  48                          <tr>
+  49:                             <th>OrganisationId</th>
+  50:                         <th>OrganisationName</th>
+  51                          <th>Options</th>
+
+  55                          {deps.map(dep=>
+  56:                             <tr key={dep.OrganisationId}>
+  57:                                 <td>{dep.OrganisationId}</td>
+  58:                                 <td>{dep.OrganisationName}</td>
+  59                                  <td>
+
+  62      onClick={()=>this.setState({editModalShow:true,
+  63:         depid:dep.OrganisationId,depname:dep.OrganisationName})}>
+  64              Edit
+
+  67          <Button className="mr-2" variant="danger"
+  68:     onClick={()=>this.deleteDep(dep.OrganisationId)}>
+  69              Delete
+
+  87                      onClick={()=>this.setState({addModalShow:true})}>
+  88:                     Add Organisation</Button>
+  89  
